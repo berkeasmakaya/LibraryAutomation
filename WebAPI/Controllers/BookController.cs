@@ -95,5 +95,16 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("getbookdetail")]
+        public IActionResult GetBookDetail(Book book)
+        {
+            var result = _bookService.GetBookDetail(book);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
     }
 }

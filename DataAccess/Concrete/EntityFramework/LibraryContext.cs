@@ -21,6 +21,9 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<BookType> BookTypes { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+
 
     }
 }

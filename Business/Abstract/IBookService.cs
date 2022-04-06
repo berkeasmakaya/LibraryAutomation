@@ -1,5 +1,6 @@
 ﻿using Core.Utilities.Results;
 using Entities.Concrete;
+using Entities.DTO_s;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace Business.Abstract
 {
     public interface IBookService
     {
-        //will be added GetBookDetails function by using Data Transformation Object.
+        IDataResult<List<BookDetailDto>> GetBookDetail(Book book);
         IDataResult<List<Book>> GetAll();
         IDataResult<List<Book>> GetAllByTypeId(int bookTypeId);
         IDataResult<Book> GetByAuthorId(int authorId);
