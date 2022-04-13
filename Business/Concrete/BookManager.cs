@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Business.Validation.FluentValidation;
+using Core.CrossCuttingConcerns.Validation.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -21,6 +23,8 @@ namespace Business.Concrete
         }
         public IResult Add(Book book)
         {
+            ValidationTool.Validate(new BookValidator(), book);
+
             _bookDal.Add(book);
             return new SuccessResult(Messages.BookAdded);
         }
