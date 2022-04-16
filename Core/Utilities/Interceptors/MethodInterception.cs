@@ -23,7 +23,7 @@ namespace Core.Utilities.Interceptors
             {
                 invocation.Proceed();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 isSuccess = false;
                 OnException(invocation);

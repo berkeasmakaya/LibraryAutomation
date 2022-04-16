@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Autofac.Extras.DynamicProxy;
 using Castle.DynamicProxy;
+using Core.Utilities.Interceptors;
 
 namespace Business.DepedencyResolvers.Autofac
 {
@@ -42,8 +43,8 @@ namespace Business.DepedencyResolvers.Autofac
             builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
                 .EnableInterfaceInterceptors(new ProxyGenerationOptions()
                 {
-                    Selector = new AspectInterceptorSelector();
-                });
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
         }
     }
 }
