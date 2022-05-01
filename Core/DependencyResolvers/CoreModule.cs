@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Core.CrossCuttingConcerns.Caching;
 using Core.CrossCuttingConcerns.Caching.Microsoft;
+using Microsoft.AspNetCore.Http;
 
 namespace Core.DependencyResolvers
 {
@@ -16,6 +17,7 @@ namespace Core.DependencyResolvers
         {
             services.AddMemoryCache();
             services.AddSingleton<ICacheManager, MemoryCacheManager>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
     }
 }
