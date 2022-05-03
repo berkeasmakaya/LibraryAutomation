@@ -10,7 +10,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Business.Validation.FluentValidation;
+using Core.Aspects.Autofac.Logging;
 using Core.Aspects.Autofac.Validation;
+using Core.CrossCuttingConcerns.Logging.Log4Net.Layouts.Loggers;
 using Core.CrossCuttingConcerns.Validation.FluentValidation;
 
 namespace Business.Concrete
@@ -37,6 +39,7 @@ namespace Business.Concrete
             return new SuccessResult(Messages.BookDeleted);
         }
 
+        [LogAspect(typeof(DatabaseLogger))]
         public IDataResult<List<Book>> GetAll()
         {
             return new SuccessDataResult<List<Book>>(_bookDal.GetAll());
